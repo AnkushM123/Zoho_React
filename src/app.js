@@ -8,6 +8,10 @@ import { ToastContainer } from "react-toastify";
 import VarifyEmail from "./components/varifyEmail";
 import SetPassword from "./components/setPassword";
 import Home from "./components/home";
+import Profile from "./components/profile";
+import Edit from "./components/edit";
+import Layout from "./components/layout";
+import Register from "./components/register";
 
 function App() {
     return (
@@ -15,9 +19,13 @@ function App() {
             <ToastContainer></ToastContainer>
             <Router>
                 <Routes>
+                <Route
+                        index
+                        element={<Login />}
+                    />
                     <Route
                         exact
-                        path="/"
+                        path="/login"
                         element={<Login />}
                     />
                     <Route
@@ -30,11 +38,28 @@ function App() {
                         path="/setPassword"
                         element={<SetPassword />}
                     />
+                    <Route element={<Layout/>}>
                     <Route
-                        exact
+                        index
                         path="/home"
                         element={<Home />}
                     />
+                    <Route
+                        exact
+                        path="/profile"
+                        element={<Profile />}
+                    />
+                    <Route
+                        exact
+                        path="/edit"
+                        element={<Edit />}
+                    />
+                    <Route
+                        exact
+                        path="/register"
+                        element={<Register />}
+                    />
+                    </Route>
                 </Routes>
             </Router>
         </>
